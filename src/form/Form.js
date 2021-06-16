@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Address from "./Address";
 import ParentsDetails from "./ParentsDetails";
 import Habits from "./Habits";
+// eslint-disable-next-line no-unused-vars
 import axios from "axios";
+import {  Container, Grid, Input } from "@material-ui/core";
 
 export class Form extends Component {
   constructor(props) {
@@ -62,71 +64,95 @@ export class Form extends Component {
   // }
 
   render() {
-    {
-      console.log(this.state);
-    }
+
     return (
-      <div>
+
+      <Container maxWidth="sm" >
+
         <form onSubmit={this.submit} name="parentForm">
-          <input
+          <Grid item xs={6} sm={6} md={6} lg={6}>
+          <Input
             type="text"
             name="firstName"
             value={this.state.firstName}
             onChange={this.inputChangeHandler}
             placeholder="FirstName"
           />
-          <br />
-          <input
+          </Grid>
+          
+          
+          <Grid item xs={6} sm={6} md={6} lg={6}>
+          <Input
             type="text"
             name="lastName"
             value={this.state.lastName}
             onChange={this.inputChangeHandler}
             placeholder="LastName"
           />
-          <br />
-          <input
+          </Grid>
+          
+          <Grid item xs={6} sm={6} md={6}lg={6}>
+          <Input
             type="number"
             name="Age"
             value={this.state.Age}
             onChange={this.inputChangeHandler}
             placeholder="Age"
           />
-          <br />
-          <input
+          </Grid>
+
+          <Grid item xs={6} sm={6} md={6}lg={6}>
+          <Input
             type="text"
             name="userId"
             value={this.state.userId}
             onChange={this.inputChangeHandler}
             placeholder="UserId"
           />
-          <br />
-          <input
+          </Grid>
+
+          <Grid item xs={6} sm={6} md={6}lg={6}>
+          <Input
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.inputChangeHandler}
             placeholder="Password"
           />
-          <br />
-          
-        
+          </Grid>
+
+          <Grid item xs={6} sm={6} md={6}lg={6}>
         <Address
           {...this.state.address}
           inputChangeHandler={this.inputChangeHandler}
           
         />
+        </Grid>
+
+          <Grid item xs={6} sm={6} md={6}lg={6}>
         <ParentsDetails
           {...this.state.parentsDetails}
           inputChangeHandler={this.inputChangeHandler}
-          
         />
+        
+        </Grid>
+        
+          <Grid item xs={6} sm={6} md={6}lg={6}>
         <Habits
           {...this.state.habits}
           inputChangeHandler={this.inputChangeHandler}
           />
-          <input type="submit" name="submit" />
+          </Grid>
+
+          <Grid item xs={6} sm={6} md={6} lg={6}>
+          
+          {/* <Button variant="outlined" color="secondary" type="submit" name="submit">Submit</Button> */}
+          
+          </Grid>
+         
+          
           </form>
-      </div>
+          </Container>
     );
   }
 }

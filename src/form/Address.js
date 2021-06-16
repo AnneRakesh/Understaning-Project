@@ -1,66 +1,32 @@
-import React, { Component } from "react";
+import { Grid, Input } from '@material-ui/core';
+import React, { Component } from 'react';
+import { Field } from 'redux-form';
+import { renderTextField, renderSelectField, renderCheckbox, radioButton } from '../RenderFeilds/RenderFeildsAll';
 
 class Address extends Component {
-  
+    render() {
+        const { laneNo, roadNO, colony, pinCode, country, inputChangeHandler } = this.props;
 
-  render() {
-    const {
-      laneNo,
-      roadNO,
-      colony,
-      pinCode,
-      country,
-      inputChangeHandler,
-      
-    } = this.props;
+        return (
+            <>
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Field type="number" name="laneNo" component={renderTextField} placeholder="LaneNo" label="LaneNo" />
+                </Grid>
 
-    return (
-      <div>
-        
-          <input
-            type="number"
-            name="laneNo"
-            value={laneNo}
-            onChange={(e) => inputChangeHandler(e, "address")}
-            placeholder="LaneNo"
-          />
-          <br />
-          <input
-            type="number"
-            name="roadNO"
-            value={roadNO}
-            onChange={(e) => inputChangeHandler(e, "address")}
-            placeholder="RoadNo"
-          />
-          <br />
-          <input
-            type="text"
-            name="colony"
-            value={colony}
-            onChange={(e) => inputChangeHandler(e, "address")}
-            placeholder="Colony"
-          />
-          <br />
-          <input
-            type="number"
-            name="pinCode"
-            value={pinCode}
-            onChange={(e) => inputChangeHandler(e, "address")}
-            placeholder="PinCode"
-          />
-          <br />
-          <input
-            type="text"
-            name="country"
-            value={country}
-            onChange={(e) => inputChangeHandler(e, "address")}
-            placeholder="Country"
-          />{" "}
-          <br />
-    
-      </div>
-    );
-  }
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Field type="number" name="roadNO" component={renderTextField} placeholder="RoadNo" label="RoadNo" />
+                </Grid>
+
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Field type="text" name="colony" component={renderTextField} placeholder="Colony" label="Colony" />
+                </Grid>
+
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Field type="text" name="country" component={renderTextField} placeholder="Country" label="Country" />
+                </Grid>
+            </>
+        );
+    }
 }
 
 export default Address;
